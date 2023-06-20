@@ -1,0 +1,1816 @@
+Iteration control stmts
+===========================
+|-Iteration control structures are used to execute a set of statements repeatedly.
+|-To terminate the repetition, a condition is required.
+
+while
+for
+do-while
+
+while
+==========
+|-when you want to repeatedly executes the statements as long as condition is met.you can use the  iteration control structure called while loop.
+
+|-When the condition becomes false the while loop terminateds and control goes to the statement written   after the while loop.
+
+syntax:
+=========
+
+initalization--->1
+while(condtion)------>2
+{
+ stmt1---->3
+ 
+updation --->4
+
+}//end of while
+
+Ex-
+===
+package com.company;
+
+import java.util.Scanner;
+
+public class WhileDemo {
+    public static void main(String args[]){
+        //create a Scanner object
+        Scanner sc=new Scanner(System.in);
+        int totalCost=0;
+        int unitPrice=10;
+        int quantity=1;
+        char wanttoAddFoodItem='Y';
+        while (wanttoAddFoodItem=='Y'){
+            totalCost=totalCost+(quantity*unitPrice);
+            System.out.println("Order placed Successfully");
+            System.out.println("Total Cost: "+totalCost);
+            System.out.println("DO you want to add more food items to your order? Y or N");
+            String input=sc.next();//Accpeting input from the customer
+            //Extracting first char from input string
+            wanttoAddFoodItem=input.charAt(0);
+        }
+
+    }
+}
+
+Ex-:
+package com.company;
+
+import java.util.Scanner;
+
+public class WhileDemo1 {
+public static void main(String args[]){
+    Scanner sc=new Scanner(System.in);
+    System.out.println("enter number");
+    int inputNumber=sc.nextInt();
+    int sumOfDigits=0;
+    int temp=0;
+    while (inputNumber>0){
+        temp=inputNumber%10;
+        sumOfDigits+=temp;
+        inputNumber=inputNumber/10;
+    }
+    System.out.println("Sum of digits are: "+sumOfDigits);
+}
+}
+
+
+do-while:
+===========
+|-When the loop has to be executed at least once before the condition is checked.do-while is used.after   the first execution the loop then gets repeated as long as the condtion is true.
+
+|-In case of do-while loop the condition is tested after executing the code block hence it is called a   exit-controlled loop.
+
+Syntax:-
+===============
+
+initalization;
+do{
+<stmts>
+}while(condition);
+
+
+Ex:-
+package com.company;
+
+import java.util.Scanner;
+
+public class Customer{
+    public static void main(String args[]){
+        //create a Scanner object
+        Scanner sc=new Scanner(System.in);
+        int totalCost=0;
+        int unitPrice=10;
+        int quantity=1;
+        char wanttoAddFoodItem='N';
+        do{
+            totalCost=totalCost+(quantity*unitPrice);
+            System.out.println("Order placed Successfully");
+            System.out.println("Total Cost: "+totalCost);
+            System.out.println("DO you want to add more food items to your order? Y or N");
+            String input=sc.next();//Accpeting input from the customer
+            //Extracting first char from input string
+            wanttoAddFoodItem=input.charAt(0);
+        }while (wanttoAddFoodItem=='Y');
+        System.out.println("Thank you for ordering the food! It will reach you shortly....");
+
+    }
+}
+
+Ex:-
+package com.company;
+
+import java.util.Scanner;
+
+public class Tester{
+public static void main(String args[]){
+    Scanner sc=new Scanner(System.in);
+    System.out.println("enter number");
+    int inputNumber=sc.nextInt();
+    int sumOfDigits=0;
+    int temp=0;
+    do{
+        temp=inputNumber%10;
+        sumOfDigits+=temp;
+        inputNumber=inputNumber/10;
+    }while (inputNumber>0);
+    System.out.println("Sum of digits are: "+sumOfDigits);
+}
+}
+
+for loop
+==================
+|- the for loop is used when the number of iterations are known.
+
+syntax:
+==========
+for(initalization;condition;updation){
+<stmts>;
+}
+
+Initalization: 
+===================
+|-It is used for initalizing the variables used for checking the condition.It is executed  only once and   gets executed when the loop starts.
+
+Condition:
+=============
+|-It is used for checking the condition to decide whether the loop should be terminated or executed.if  the condition is true.the body of the loop is executed else the loop terminates.
+
+
+increment/decrement
+======================
+|-It increment or decrements the value of the variable used for checking the condition after every  iteration of the loop
+
+
+Ex:-
+package com.company;
+
+import java.util.Scanner;
+
+public class Customer{
+    public static void main(String args[]){
+        //create a Scanner object
+        Scanner sc=new Scanner(System.in);
+        int totalCost=0;
+        int unitPrice=10;
+
+        System.out.println("Enter the number of food items to be ordered");
+        int noFoodItemsToBeOrdered=sc.nextInt();
+        for(int counter=1;counter<=noFoodItemsToBeOrdered;counter++){
+            System.out.println("Enter the Food Item");
+            String foodItem=sc.next();
+            System.out.println("Enter the quantity");
+            int quantity=sc.nextInt();
+            System.out.println("You have Ordered: "+foodItem);
+            totalCost+=unitPrice*quantity;
+            System.out.println("Order Placed successfully! ");
+            System.out.println("Total cost of the Order: "+totalCost);
+        }
+
+    }
+}
+
+Ex-:
+======
+package com.company;
+
+import java.util.Scanner;
+
+public class WhileDemo {
+    public static void main(String args[]){
+     int totalNoOfCustomer=12;
+     String customerId="";
+     for(int counter=1;counter<=totalNoOfCustomer;counter++){
+         if(counter<=9)
+             customerId="C0"+counter;
+         else
+             customerId="C"+counter;
+         System.out.println("Customer Id for customer "+ "is "+customerId);
+     }
+    }
+}
+
+
+
+
+Loop When to Use
+===================
+while
+ |-When number of iterations is not known
+
+do-while
+  |-when we want the loop to execute at least once and the number of iterations is not known.
+
+for
+ |-when number of iterations is known
+
+Nested loop
+================
+
+|-A nested loop is a loop within another loop. an inner loop within the body of an outer one.
+
+
+package com.company;
+
+public class NestedLoop {
+    public static void main(String args[]){
+        for(int i=1;i<=3;i++){
+            for (int j=1;j<=3;j++){
+                System.out.println("i= "+i +" j ="+j);
+            }
+        }
+    }
+}
+
+
+Ex:-
+=====
+package com.company;
+
+public class NestedLoop {
+    public static void main(String args[]){
+        for(int i=1;i<=5;i++){
+            for(int j=1;j<=i;j++){
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+
+    }
+}
+
+
+
+
+
+
+break kwd
+===========
+
+|-break statement is used to terminate a loop.After terminating the loop,the next statement following    the loop gets executed.
+
+Ex:-
+========
+package com.company;
+
+public class LoopBreakDemo {
+    public static void main(String args[]){
+        for(int i=1;i<=5;i++){
+            if(i==4)
+                break;;
+            System.out.println(i);
+        }
+    }
+}
+
+
+ex:-
+======
+package com.company;
+import java.util.Scanner;
+public class Main {
+
+    public static void main(String[] args) {
+
+        //create a Scanner object
+        Scanner sc=new Scanner(System.in);
+        int totalCost=0;
+        int unitPrice=10;
+        System.out.println("Enter the max amount you can pay");
+        int maxAmountCustomerCanPay=sc.nextInt();
+        System.out.println("Enter the number of food items to be ordered");
+        int noFoodItemsToBeOrdered=sc.nextInt();
+        for(int counter=1;counter<=noFoodItemsToBeOrdered;counter++){
+            System.out.println("Enter the Food Item");
+            String foodItem=sc.next();
+            System.out.println("Enter the quantity");
+            int quantity=sc.nextInt();
+            System.out.println("You have Ordered: "+foodItem);
+            totalCost+=unitPrice*quantity;
+            if(totalCost>maxAmountCustomerCanPay){
+                System.out.println("Sorry! Total cost is crossing your max amount limit");
+                break;
+            }
+            System.out.println("you have ordered:  "+foodItem);
+            System.out.println("Order placed successfully");
+            System.out.println("Total cost of the Order: "+totalCost);
+        }
+
+    }
+}
+
+
+Example:-
+============
+package com.company;
+
+import java.util.Scanner;
+
+public class Main {
+ static  boolean isPrime(int n){
+     boolean flag=true;
+     for(int i=2;i<n;i++){
+         if(n%i==0){
+             flag=false;
+             break;
+         }
+     }
+     return flag;
+
+ }
+
+    public static void main(String[] args) {
+
+      Scanner sc=new Scanner(System.in);
+        System.out.println("enter number");
+        int n=sc.nextInt();
+        /*
+        n
+         2 to n-1
+         */
+       boolean flag= isPrime(n);
+        if(flag==true){
+            System.out.println(n+" is a Prime Number");
+        }else{
+            System.out.println(n+" is not a prime number");
+        }
+
+
+
+    }
+}
+
+
+
+continue kwd
+================
+
+|-continue stmt is used to skip the current iteration of a loop and continue with the next iteration.
+
+
+Ex:-
+======
+package com.company;
+
+public class ContinueDemo {
+    public static void main(String args[]){
+        for(int i=1;i<=5;i++){
+            if(i==4)
+                continue;;
+            System.out.println(i);
+        }
+    }
+}
+
+Ex:
+=====
+package com.company;
+import java.util.Scanner;
+public class Main {
+
+    public static void main(String[] args) {
+
+        //create a Scanner object
+        Scanner sc=new Scanner(System.in);
+        int totalCost=0;
+        int unitPrice=10;
+        System.out.println("Enter the number of food items to be ordered");
+        int noFoodItemsToBeOrdered=sc.nextInt();
+        for(int counter=1;counter<=noFoodItemsToBeOrdered;counter++){
+            if(counter==3)
+                continue;
+            System.out.println("Enter the Food Item");
+            String foodItem=sc.next();
+            System.out.println("Enter the quantity");
+            int quantity=sc.nextInt();
+            System.out.println("You have Ordered: "+foodItem);
+            totalCost+=unitPrice*quantity;
+
+            System.out.println("you have ordered:  "+foodItem);
+            System.out.println("Order placed successfully");
+            System.out.println("Total cost of the Order: "+totalCost);
+        }
+
+    }
+}
+
+
+Difference b/w continue and break kwd
+========================================
+break
+ |-terminates a loop or switch statement
+ |- can be used with loops and switch
+
+
+continue
+  |-skips the remaining statement of the loop for the current iteration.
+  |-can be used only within loops
+
+
+
+
+
+
+
+
+
+Need for Object Orientened Programming
+============================================
+
+
+|-calcualtes and displays the total cost of food ordered by a customer based on the customer type and   food ordered.
+
+
+package com.company;
+
+public class Customer {
+    public static void main(String args[]){
+
+        //consider the code which calculates and displays the total cost of food ordered by customer
+        //based on the  customer type and food ordered.
+        String customerType="Regular";
+        String orderedFood="Pizza";
+        int quantity=1;
+        int unitPrice=10;
+        int totalCost=0;
+        int discountPercentage=5;
+        int deliveryCharge=5;
+        totalCost=unitPrice*quantity;
+
+        if(customerType.equals("Regular") && orderedFood.equals("Pizza")){
+            System.out.println("you have Ordered Pizza");
+            totalCost=totalCost-(totalCost*discountPercentage/100);
+        }else if(customerType.equals("Guest") && orderedFood.equals("Pizza")){
+            System.out.println("you have ordered Pizza");
+            totalCost=totalCost+deliveryCharge;
+        }else{
+            System.out.println("Invalid Selection");
+        }
+        System.out.println("The total cost to be paid is "+totalCost);
+
+        System.out.println("Total Cost: "+totalCost);
+
+    }
+    }
+
+
+Note:-
+=======
+customertype refers to the type of the Customer which can be Regular or Guest
+
+Real World Entites
+=====================
+Customer
+Food
+Order
+
+
+|-Object Oriented Programming(OOP) is a type of programming approach which enables the programmer to work with real life entities like Customer,Employee,Company,Food,Product,Book etc.
+E.g
+======
+We can have a class named Customer to represent the state and behavior of all customers.
+Each individual customer can then be represented using an object of the Customer class.
+
+Customer
+
+customerName:John
+customerType:Regular
+discountPercentage:5%
+deliveryCharge:0
+orderfood
+
+
+Food
+foodName:Pizza
+unitPrice:3.2
+
+Order
+foodOrdered:Pizza
+quantity:2
+totalCost:6
+
+Here there are three real life entities:Customer,Food,Order
+
+
+|-A represention specifying the characteristics and behaviors of an object is called a class.It is not   real life entity but a template for representing real life entities.
+
+|-An object,which is an instance of a class is real life entity which has some attributes and behaviors.
+
+
+
+|-We can define a class in java by using class kwd
+
+class <class-name>{
+ data-memeber
+ data-method
+}
+
+class Customer{
+
+}
+
+class Person{
+}
+
+Ex:
+===
+|-A class can have attributes(characteristics) and methods(behavious)
+
+public class Customer {
+public String customerId;
+public  String customerName;
+public  long contactNumber;
+public String address;
+}
+
+|-Attributes are represented by variables.
+|-Attributes represent the state of a real life entity.
+|-Each real life entity can have its own values for those variable.Since each instance of a class has  different values for its variables.these variables are called instance variables.
+
+|-Each instance variable has a data type associated with it.in given code String and long are data types  used.
+
+|-Apart from data types,you can see another keyword being used public.It is an acess modifier.
+
+|-Access modifiers help in limiting access to the member of a class.It can be used along with  class,attributes and methods.
+
+
+|-The variable which are define inside the class directly but outside of any method block and   constructor is known as instance variable.
+
+
+|-Instance variable is an Object-level variable.
+|-Instance variable is an  part-of an Object.
+
+
+
+How to Create an Object
+==========================
+|-Once the class is ready.the next step is to create instance of the class which can represent the real  life entities.These instances are called objects of the class.
+
+|-An object is an instance of a class.
+|-An object holds data for every instance variable of class.
+|-It allows us to use the instance variables and methods specified in the class
+|-Any number of objects can created for a class
+
+|-In java , an object of a class is created by using the new kwd.
+
+syntax:
+=======
+  new <class-name()>;
+
+
+|-The new kwd is responsible for creation of the object and having memory allocated for it.
+
+|-variables referring to objects are called reference variable.
+
+|-Instance variables are automatically initalized to the default value of the data type during object  creation
+
+|-Once object is created the object's methods and attributes can be invoked using the "." operator   depending upon the access modifier  
+
+
+
+Ex:-
+====
+
+package com.company;
+
+public class Customer {
+    public String customerId;
+    public  String customerName;
+    public  long contactNumber;
+    public String address;
+}
+
+
+package com.company;
+import java.util.Scanner;
+public class Main {
+
+    public static void main(String[] args) {
+      //Object Creation
+        Customer customer1=new Customer();
+
+        //Assigning values to the instance variables
+        customer1.customerId="C101";
+        customer1.customerName="John";
+        customer1.contactNumber=977388838;
+        customer1.address="UK";
+        System.out.println("Customer Id:"+customer1.customerId);
+        System.out.println("Customer Name: "+customer1.customerName);
+        System.out.println("Contact Number: "+customer1.contactNumber);
+        System.out.println("Customer Address: "+customer1.address);
+      Customer customer2=new Customer();
+      customer2.customerId="C102";
+      customer2.customerName="Harry";
+      customer2.contactNumber=895855885;
+      customer2.address="Aus";
+        System.out.println("===========================================");
+
+        System.out.println("Customer Id:"+customer2.customerId);
+        System.out.println("Customer Name: "+customer2.customerName);
+        System.out.println("Contact Number: "+customer2.contactNumber);
+        System.out.println("Customer Address: "+customer2.address);
+    }
+}
+
+
+Ex-    Modified the code
+=====
+
+package com.company;
+
+public class Customer {
+public String customerId;
+public  String customerName;
+public  long contactNumber;
+public String address;
+
+public void init(){
+    //Assigning values to the instance variables
+    customerId="C101";
+    customerName="John";
+    contactNumber=977388838;
+    address="UK";
+}
+
+public void displayCustomerDetails(){
+    System.out.println("................Displaying Customer Details............");
+
+    System.out.println("Customer Id:"+customerId);
+    System.out.println("Customer Name: "+customerName);
+    System.out.println("Contact Number: "+contactNumber);
+    System.out.println("Customer Address: "+address);
+}
+}
+
+
+package com.company;
+import java.util.Scanner;
+public class Main {
+
+    public static void main(String[] args) {
+        //Object Creation
+        Customer customer1=new Customer();
+        //Object Initalization
+        customer1.init();
+
+        //displaying customer Deatils
+        customer1.displayCustomerDetails();
+
+      Customer customer2=new Customer();
+     customer2.init();
+      customer2.displayCustomerDetails();
+    }
+}
+
+
+
+package com.company;
+
+public class Customer {
+public String customerId;
+public  String customerName;
+public  long contactNumber;
+public String address;
+
+public void init(String cid,String cname,long cnum,String addr){
+    //Assigning values to the instance variables
+    customerId=cid;
+    customerName=cname;
+    contactNumber=cnum;
+    address=addr;
+}
+
+public void displayCustomerDetails(){
+    System.out.println("................Displaying Customer Details............");
+
+    System.out.println("Customer Id:"+customerId);
+    System.out.println("Customer Name: "+customerName);
+    System.out.println("Contact Number: "+contactNumber);
+    System.out.println("Customer Address: "+address);
+}
+}
+
+
+package com.company;
+import java.util.Scanner;
+public class Main {
+
+    public static void main(String[] args) {
+        //Object Creation
+        Customer customer1=new Customer();
+        //Object Initalization
+        customer1.init("C01","John",986788888,"US");
+
+        //displaying customer Deatils
+        customer1.displayCustomerDetails();
+
+      Customer customer2=new Customer();
+     customer2.init("C02","Harry",987894774,"UK");
+      customer2.displayCustomerDetails();
+    }
+}
+Methods in java
+==========================
+
+|-A method is a set of statments which represents the behavior of a class.
+|-It is used to implement a specific functionality.
+
+Syntax:
+=======
+
+[<access-modifier>] <return-type> method-name([<para_list>])
+{
+    //method body
+}
+
+e.g:-
+========
+Access   Return  method
+Modifier type    name              parameter
+|         |      |                   |
+public  void payBill(double totalPrice,double discount){
+  //method-body
+}
+
+
+Access Modifier:
+  |-defines the access type of the method.
+
+Return type
+  |-the data type of the value returned by the method or void if nothing is returned
+
+Method-name -name of the method
+
+Parameters
+  |-comma separated input values passed to the method
+
+Method body
+  |-the code that defines the functionality of the method
+
+
+
+
+package com.company;
+
+public class MethodDemo {
+
+   static double findAverage(int number1,int number2,int number3){
+        double avg=(number1+number2+number3)/3;
+        return avg;
+    }
+    public static void main(String args[]){
+      double res=findAverage(10,20,30);
+        System.out.println(res);
+    }
+}
+
+package com.company;
+
+public class MethodDemo {
+
+   static double findAverage(int number1,int number2,int number3){
+        double avg=(number1+number2+number3)/3;
+        return avg;
+    }
+   static double square(int number){
+       return number*number;
+    }
+    
+    public static void main(String args[]){
+      double res=findAverage(10,20,30);
+        System.out.println(res);
+      double sq=  square(7);
+        System.out.println(sq);
+    }
+}
+
+
+
+
+Constructor in java
+==============================
+
+|-If you want to perform any activity at the time of object creation then we should go for constructor.
+
+|-A constructor in java is special method that is used to initalize class variables at the time of   object creation. 
+
+|-Each time an object is created using the new kwd, a constructor is callled.
+
+|-constructor have the same name as that of the class and does not have a return type.
+
+Syntax:
+========
+<acces modifier><name>(<parametes){
+//body
+}
+
+
+e.g:
+
+public Customer(){
+}
+
+package com.company;
+
+public class Demo {
+
+      Demo(){
+         System.out.println("Constructor is invoking!!");
+     }
+   
+    public static void main(String args[]){
+    Demo d1=new Demo();
+    Demo d2=new Demo();
+    Demo d3=new Demo();
+    Demo d4=new Demo();
+    Demo d5=new Demo();
+    }
+}
+
+
+types of constructor
+======================
+1.default constructor
+2.User defined constructor
+
+
+1.Default Constructor
+========================
+
+|-If the developer does not created any constructor then, java provides a default constructor
+
+
+Before compilation
+========================
+package com.company;
+
+public class Demo {
+   int a;
+   double b;
+   String n;
+   boolean flag;
+
+    public static void main(String args[]){
+    Demo d1=new Demo();
+        System.out.println("a= "+d1.a);
+        System.out.println("b= "+d1.b);
+        System.out.println("n= "+d1.n);
+        System.out.println("flag= "+d1.flag);
+        
+    }
+}
+
+After Compilation
+===================
+package com.company;
+
+public class Demo {
+   int a;
+   double b;
+   String n;
+   boolean flag;
+
+    Demo(){
+     a=0;
+     b=0.0;
+     n=null;
+     flag=false;
+}
+
+    public static void main(String args[]){
+    Demo d1=new Demo();
+        System.out.println("a= "+d1.a);
+        System.out.println("b= "+d1.b);
+        System.out.println("n= "+d1.n);
+        System.out.println("flag= "+d1.flag);
+        
+    }
+}
+
+User defined Constructor
+============================
+|-A constructor is created by the programmer is called user-defined constructor.
+
+|-A constructor with no arguments is known as parameterless constructor.if you don't define a   constructor in a class then java creates a default constructor and initalizes the default values to   the class variable based on the data type.
+
+|-Like a method, a constructor can also accept parameters
+
+
+Ex:-
+=====
+package com.company;
+
+public class Customer {
+public String customerId;
+public  String customerName;
+public  long contactNumber;
+public String address;
+
+
+Customer(String cid,String cname,long cnum,String addr){
+    //Assigning values to the instance variables
+    customerId=cid;
+    customerName=cname;
+    contactNumber=cnum;
+    address=addr;
+}
+
+
+public void displayCustomerDetails(){
+    System.out.println("................Displaying Customer Details............");
+
+    System.out.println("Customer Id:"+customerId);
+    System.out.println("Customer Name: "+customerName);
+    System.out.println("Contact Number: "+contactNumber);
+    System.out.println("Customer Address: "+address);
+}
+}
+
+package com.company;
+import java.util.Scanner;
+public class Main {
+
+    public static void main(String[] args) {
+
+Customer customer1=new Customer("C01","John",97887898,"US");
+customer1.displayCustomerDetails();
+          }
+}
+
+Constructor Overloading
+==========================
+|- A class can have multiple constructor.
+|-defining more than one constructor with same name but different signature.
+
+1. No of parameter
+2. Type of parameter
+3. Order of paramter
+
+
+package com.company;
+
+public class Demo {
+   int a,b;
+   Demo(){
+       System.out.println("zero-para constructor");
+       a=10;
+       b=20;
+   }
+   Demo(int n){
+
+       System.out.println("single-para constructor");
+       a=n;
+       b=n;
+   }
+   Demo(int x,int y){
+
+       System.out.println("double-para constructor");
+       a=x;
+       b=y;
+   }
+   void  display(){
+       System.out.println("a= "+a);
+       System.out.println("b= "+b);
+   }
+
+
+
+    public static void main(String args[]){
+    Demo d1=new Demo();
+    d1.display();
+
+    Demo d2=new Demo(50);
+    d2.display();
+
+    Demo d3=new Demo(100,200);
+    d3.display();
+    }
+}
+
+Ex-
+=====
+package com.company;
+
+public class Box {
+    double length,width,height;
+    Box(double side){
+        length=side;
+        width=side;
+        height=side;
+
+    }
+    Box(double x,double y,double z){
+        length=x;
+        width=y;
+        height=z;
+    }
+    double volume(){
+        return length*width*height;
+    }
+    public  static  void main(String args[]){
+        Box cube=new Box(10);
+        Box cuboid=new Box(10,20,30);
+        System.out.println("Cube Volume= "+cube.volume());
+        System.out.println("Cuboid Voumne= "+cuboid.volume());
+
+    }
+}
+
+
+
+
+this kwd
+============
+
+package com.company;
+
+public class Test {
+    int a,b; //instance variable
+    Test(int a,int b){
+        a=a;
+        b=b;
+    }
+    void display(){
+        System.out.println("a= "+a);
+        System.out.println("b= "+b);
+    }
+    public static void main(String args[]){
+        Test t1=new Test(10,20);
+        t1.display();
+    }
+}
+
+Here the name of the instance variable of the class and the parameter passed in the constructor are the same. In such case the local variables(arguments of the constructor) have more priority and therfore only the local variable will be reffered inside the above constructor.
+
+Ex-
+====
+package com.company;
+
+/*
+Object
+ */
+public class Test {
+    int a,b; //instance variable
+    Test(int a,int b){
+        this.a=a;
+        this.b=b;
+    }
+    void display(){
+        System.out.println("a= "+a);
+        System.out.println("b= "+b);
+    }
+    public void printThis(){
+        System.out.println("this= "+this);
+    }
+    public static void main(String args[]){
+        Test t1=new Test(10,20);
+        System.out.println("t1= "+t1);
+        t1.printThis();
+        t1.display();
+        Test t2=new Test(10,20);
+        System.out.println("t2= "+t2);
+        t2.printThis();
+        t2.display();
+    }
+}
+
+Note:-
+========
+|-In java,this is a reference variable that refers to the current object.
+
+Ex-
+package com.company;
+
+public class Customer {
+public String customerId;
+public  String customerName;
+public  long contactNumber;
+public String address;
+
+
+Customer(String customerId,String customerName,long contactNumber,String address){
+    //Assigning values to the instance variables
+    this.customerId=customerId;
+    this.customerName=customerName;
+    this.contactNumber=contactNumber;
+    this.address=address;
+}
+
+int give_me_ten(){
+    return 10;
+}
+public void displayCustomerDetails(){
+    System.out.println("................Displaying Customer Details............");
+
+    System.out.println("Customer Id:"+customerId);
+    System.out.println("Customer Name: "+customerName);
+    System.out.println("Contact Number: "+contactNumber);
+    System.out.println("Customer Address: "+address);
+}
+}
+
+
+this:- refers to the current object
+this():- used to invoke a constructor within a class
+
+
+package com.company;
+
+public class Demo {
+   int a,b;
+   Demo(){
+       System.out.println("zero-para constructor");
+       a=10;
+
+   }
+   Demo(int b){
+       this(); //calling a zero para-constructor
+       System.out.println("single-para constructor");
+      this.b=b;
+   }
+   Demo(int a,int b){
+            this(b);//calling a single para-constructor
+       System.out.println("double-para constructor");
+       this.a=a;
+   }
+   void  display(){
+       System.out.println("a= "+a);
+       System.out.println("b= "+b);
+   }
+
+
+
+    public static void main(String args[]){
+    Demo d=new Demo(10,20);
+    }
+}
+
+toString() method in java
+===============================
+
+|-If you want to represent any object as a string then toString() method comes into existence.
+
+|-The toString() method returns the String representation of the object.
+|-If you print any object reference,java compiler invokes the toString() method on the object
+|-So overriding toString() method returns the desired output.
+
+Ex-
+===
+package com.company;
+
+/*
+Object
+ */
+public class Test {
+    int a,b; //instance variable
+    Test(int a,int b){
+        this.a=a;
+        this.b=b;
+    }
+    void display(){
+        System.out.println("a= "+a);
+        System.out.println("b= "+b);
+    }
+    public void printThis(){
+        System.out.println("this= "+this);
+    }
+
+    @Override
+    public String toString() {
+        return a+"  "+b;
+    }
+
+    public static void main(String args[]){
+        Test t1=new Test(10,20);
+        System.out.println(t1);
+
+        Test t2=new Test(100 ,200);
+        System.out.println(t2);
+
+    }
+}
+
+
+
+
+java.lang.Object
+public boolean equals(Object obj)
+
+package com.company;
+
+public class Test {
+    int a,b; //instance variable
+    Test(int a,int b){
+        this.a=a;
+        this.b=b;
+    }
+    void display(){
+        System.out.println("a= "+a);
+        System.out.println("b= "+b);
+    }
+
+    @Override
+    public String toString() {
+        return "a= "+a+" b= "+b;
+    }
+
+    
+    public static void main(String args[]){
+        Test t1=new Test(10,20);
+        Test t2=new Test(100,200);
+       // System.out.println(t1==t2);
+        System.out.println(t1.equals(t2));
+        //Object
+
+    }
+}
+
+
+package com.company;
+
+import java.util.Objects;
+
+public class Test {
+    int a,b; //instance variable
+    Test(int a,int b){
+        this.a=a;
+        this.b=b;
+    }
+    void display(){
+        System.out.println("a= "+a);
+        System.out.println("b= "+b);
+    }
+
+    @Override
+    public String toString() {
+        return "a= "+a+" b= "+b;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+       Test t=(Test)o;
+       if(this.a==t.a && this.b==t.b)
+           return true;
+       else
+           return false;
+      }
+
+    public static void main(String args[]){
+        Test t1=new Test(10,20);
+        Test t2=new Test(10,20);
+       // System.out.println(t1==t2);
+        System.out.println(t1.equals(t2));
+        //Object
+
+    }
+}
+
+
+
+Getter & Setter Methods
+==========================
+
+|-Getters and Setters are special class method that is used to read and write access to an object's properties.
+
+|-The getter method is used to read the value of the variable or retrieve the value
+|-The setter method is used to set or initialze respective class fields.
+
+Defining a getter()
+========================
+|-we can define the getters method by using the get with no parameter a valid return type
+
+syntax:-
+===========
+return_type getField_name(){}
+
+
+Defining a setter()
+=======================
+
+|-we can define the setter method using the set with one parameter and without return type
+
+syntax:-
+==============
+
+void setFieldName(para){}
+
+e.g: name
+
+void setName(String name){
+this.name=name
+}
+
+Example:
+===========
+package com.company;
+
+public class Customer {
+    private String customerId;
+    private   String customerName;
+    private   long contactNumber;
+    private String address;
+
+    public String getCustomerId() {
+        return customerId;
+    }
+
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
+
+    public long getContactNumber() {
+        return contactNumber;
+    }
+
+    public void setContactNumber(long contactNumber) {
+        if(contactNumber>0){
+            if(countDigits(contactNumber)==10){
+                this.contactNumber = contactNumber;
+            }
+            else {
+                System.out.println("Contact number should have 10 Digits");
+            }
+        }
+        else{
+            System.out.println("Contact number should be postive");
+        }
+    }
+  private   int countDigits(long number){
+        int count=0;
+        while (number>0){
+            count++;
+            number=number/10;
+        }
+        return count;
+     }
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    Customer(String customerId, String customerName, long contactNumber, String address){
+       this.customerId=customerId;
+       this.customerName=customerName;
+       this.contactNumber=contactNumber;
+       this.address=address;
+   }
+    void displayCustomerDetails(){
+        System.out.println("CustomerId: "+customerId);
+        System.out.println("CustomerName: "+customerName);
+        System.out.println("ContactNumber: "+contactNumber);
+        System.out.println("Address: "+address);
+
+    }
+    void print(){
+        System.out.println("this="+this);
+    }
+}
+
+
+static variable
+==================
+package com.company;
+
+public class Employee {
+    private int eid;
+    static String cname;
+   static int counter;
+    static {
+        cname="Maveric";
+        counter=101;
+    }
+
+    public int getEid() {
+        return eid;
+    }
+
+    public void setEid(int eid) {
+        this.eid = eid;
+    }
+
+    public Employee() {
+        this.eid=counter;
+        counter++;
+    }
+}
+
+
+package com.company;
+
+public class EmployeeTest {
+    public static void main(String args[]){
+        Employee employee1=new Employee();
+        Employee employee2=new Employee();
+        Employee employee3=new Employee();
+        System.out.println("Eid: "+employee1.getEid());
+        System.out.println("Cname: "+Employee.cname);
+        System.out.println("Eid: "+employee2.getEid());
+        System.out.println("Cname: "+Employee.cname);
+        System.out.println("Eid:"+employee3.getEid());
+
+    }
+}
+
+static Variable
+=====================
+|-If the variable value is not varied from object to object then we should go for static variable.
+|-For static variable only one time memory will be allocated at the time of class loading.
+|-static variable is a class-level variable.
+|-static variable you can also access without an object of a class just by using class-name.
+
+ syntax:-
+               className.variable_name
+
+
+|-If the variable value is  varied from object to object then we should go for instance variable.
+|-Instance variable is an object level variable.
+|-for instance variable a seperate copy will be maintained for each object.
+
+
+package com.company;
+
+public class Employee {
+    private int eid;
+    private String ename;
+    static String cname;
+    static int counter;
+
+    static {
+        System.out.println("this is static block");
+        cname="Maveric";
+        counter=101;
+    }
+    public Employee(String ename) {
+        System.out.println("constructor invoking!!");
+        this.eid = counter++;
+        this.ename = ename;
+    }
+    void displayEmployeeDetails(){
+        System.out.println("Employee Id: "+eid);
+        System.out.println("Employee Name: "+ename);
+        System.out.println("Employee Company: "+cname);
+    }
+    public static void main(String args[]){
+     Employee employee1=new Employee("john");
+     employee1.displayEmployeeDetails();
+        Employee employee2=new Employee("john");
+        employee2.displayEmployeeDetails();
+
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
